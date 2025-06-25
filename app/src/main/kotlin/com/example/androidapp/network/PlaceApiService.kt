@@ -11,7 +11,7 @@ interface PlaceApiService {
         @Query("categories") categories: String = "catering.restaurant",
         @Query("filter", encoded = true) filter: String,
         @Query("bias", encoded = true) bias: String,
-        @Query("limit") limit: Int = 5,
+        @Query("limit") limit: Int = 15,
         @Query("apiKey") apiKey: String = "cd19448433e4488288126482bef62091"
     ): Response<ResponseBody>
 }
