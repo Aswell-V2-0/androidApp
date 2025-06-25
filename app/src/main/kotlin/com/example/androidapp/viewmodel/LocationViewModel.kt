@@ -15,9 +15,6 @@ class LocationViewModel(
     private val locationRepository: LocationRepository
 ) : AndroidViewModel(app) {
 
-    private val _locationText = mutableStateOf("Permission not granted")
-    val locationText: State<String> = _locationText
-
     private val _userLocation = mutableStateOf<Location?>(null)
     val userLocation: State<Location?> = _userLocation
 
@@ -28,9 +25,6 @@ class LocationViewModel(
         viewModelScope.launch {
             val location = locationRepository.getLastKnownLocation()
             _userLocation.value = location
-            _locationText.value = location?.let {
-                "Lat: ${it.latitude}, Lng: ${it.longitude}"
-            } ?: "Please enable location service"
 
             _nearbyPlaces.value = location?.let {
                 locationRepository.getNearbyPlaces(it)

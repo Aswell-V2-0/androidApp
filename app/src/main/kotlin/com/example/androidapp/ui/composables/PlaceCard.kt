@@ -1,6 +1,5 @@
 package com.example.androidapp.ui.composables
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -9,29 +8,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 
 @Composable
 fun PlaceCard(text: String, modifier: Modifier = Modifier) {
-    val customPainter = remember {
-        object : Painter() {
-            override val intrinsicSize: Size
-                get() = Size(80.0f, 80.0f)
-
-            override fun DrawScope.onDraw() {
-                drawRect(color = Color.Magenta)
-            }
-        }
-    }
-
     Surface(
         shape = MaterialTheme.shapes.small,
         color = MaterialTheme.colorScheme.surfaceVariant,
@@ -40,9 +24,9 @@ fun PlaceCard(text: String, modifier: Modifier = Modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = customPainter,
-                contentDescription = text,
+            AsyncImage(
+                model = "https://images.pexels.com/photos/32551507/pexels-photo-32551507.png",
+                contentDescription = "Placeholder image",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.size(80.dp)
             )

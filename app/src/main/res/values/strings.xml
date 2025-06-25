@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">androidApp</string>
+    <string name="places_title">Places near to you</string>
 </resources>
