@@ -2,6 +2,7 @@ package com.example.androidapp.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
@@ -63,6 +64,8 @@ fun LocationScreen(viewModel: LocationViewModel) {
         Text(text = locationText)
         Spacer(modifier = Modifier.height(16.dp))
 
-        PlaceList(places)
+        if(places.isNotEmpty()) {
+            PlaceList(places)
+        }
     }
 }

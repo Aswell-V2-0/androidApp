@@ -8,6 +8,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.androidapp.data.DefaultLocationRepository
+import com.example.androidapp.network.RetrofitInstance
 import com.example.androidapp.viewmodel.LocationViewModel
 import com.google.android.gms.location.LocationServices
 import com.example.androidapp.ui.LocationScreen
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        val locationRepository = DefaultLocationRepository(fusedLocationClient)
+        val locationRepository = DefaultLocationRepository(fusedLocationClient, RetrofitInstance.api)
 
         setContent {
             val locationViewModel = viewModel<LocationViewModel>(
